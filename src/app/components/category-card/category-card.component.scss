@@ -1,0 +1,27 @@
+.container {
+  background-color: white;
+  box-shadow: 0 1px 10px black;
+
+  border-radius: 5px;
+
+  cursor: pointer;
+  padding: 1em;
+
+  img {
+    border-radius: 20px;
+    width: 20vw;
+  }
+
+  h3 {
+    margin-left: .6em;
+    margin-bottom: .4em;
+  }
+}
+
+@media screen and (max-width: 1080px) {
+  .container {
+    img {
+      width: 50vw;
+    }
+  }
+}
