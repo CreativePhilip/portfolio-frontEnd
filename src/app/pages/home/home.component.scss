@@ -35,9 +35,16 @@ main {
 
   background-color: $main-color;
 
+
   &:hover {
     background-color: lighten($main-color, 5);
   }
+}
+
+.skills-title {
+  margin-bottom: 1em;
+
+  font-size: 2em;
 }
 
 .skills {
@@ -51,11 +58,9 @@ main {
   flex-direction: column;
   align-items: center;
 
-  .skills-title {
-    margin-bottom: 1em;
+  box-shadow: 0 1px 10px black;
 
-    font-size: 2em;
-  }
+
 
   .grid-container {
     display: grid;
@@ -95,4 +100,49 @@ main {
       grid-row: 2 / 2;
     }
   }
+}
+
+.recent {
+  margin: 5em 15vw;
+  padding: 2rem;
+
+  background-color: white;
+  border-radius: 30px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  box-shadow: 0 1px 10px black;
+}
+
+.sub-container {
+  display: grid;
+  grid-template-columns: 50fr 50fr;
+  grid-gap: 60px;
+
+  align-items: center;
+  justify-items: center;
+
+  width: 90%;
+}
+
+.recent-project-header {
+  grid-row: 1;
+  grid-column: 1;
+}
+
+.recent-blog-header {
+  grid-row: 1;
+  grid-column: 2;
+}
+
+.recent-projects {
+  grid-row: 2;
+  grid-column: 1;
+}
+
+.recent-blogs {
+  grid-row: 2;
+  grid-column: 2;
 }
