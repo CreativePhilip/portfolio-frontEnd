@@ -1,0 +1,54 @@
+.article-container {
+  background-color: white;
+  border-radius: 20px;
+
+  margin: 2em;
+  padding: 2em;
+
+  box-shadow: 0 1px 3px black;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  #title, #date {
+    align-self: start;
+  }
+
+  #date {
+    margin-top: .5em;
+  }
+
+  #text {
+    width: 100%;
+  }
+}
+
+.buttons {
+  display: flex;
+  width: 100%;
+}
+
+.button {
+  padding: .7em 1.5em;
+  user-select: none;
+
+  $background-color: #f3aa1f;
+  background-color: $background-color;
+
+  &:hover {
+    background-color: lighten($background-color, 5);
+  }
+}
+
+.button__float-right {
+  margin-left: auto;
+}
+
+#prev-button {
+  margin-right: auto;
+}
+
+.next-button {
+  margin-left: auto;
+}
