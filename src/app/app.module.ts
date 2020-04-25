@@ -11,6 +11,7 @@ import { HttpClientModule } from "@angular/common/http";
 import { CategoriesComponent } from './pages/categories/categories.component';
 import { CategoryCardComponent } from './components/category-card/category-card.component';
 import { ArticlesComponent } from './pages/articles/articles.component';
+import { ArticleComponent } from './pages/article/article.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { ArticlesComponent } from './pages/articles/articles.component';
     MainFooterComponent,
     CategoriesComponent,
     CategoryCardComponent,
-    ArticlesComponent
+    ArticlesComponent,
+    ArticleComponent
   ],
   imports: [
     BrowserModule,
