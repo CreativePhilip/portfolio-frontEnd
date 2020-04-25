@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnDestroy } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 import { environment } from '../../../environments/environment';
 import { Store } from "@ngrx/store";
@@ -9,7 +9,8 @@ import * as AuthActions from "../../state-management/auth-state/auth-actions";
 
 
 export interface AuthResponse {
-
+  refresh: string,
+  access: string
 }
 
 export interface TokenRefresh {
@@ -20,7 +21,7 @@ export interface TokenRefresh {
 @Injectable({
   providedIn: 'root'
 })
-export class AuthService {
+export class AuthService implements OnDestroy{
 
   rootUrl = environment.apiUrl;
   tokenCheck;
@@ -31,8 +32,6 @@ export class AuthService {
   constructor (private http: HttpClient,
                private store: Store<AuthState>) {
     this.tokenCheck = setInterval(() => this.tokenRefresh(), 1000 * 60 * 4.5);
-
-    // this.loadTokensFromLocalStorage();
 
     this.subscription = this.store.select('auth').subscribe(value => {
       this.auth = value;

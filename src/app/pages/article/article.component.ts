@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DatabaseService } from "../../services/database-connection/database.service";
 import { ActivatedRoute, Router } from "@angular/router";
 import { ArticleModel } from "../../services/database-connection/Models/ArticleModel";
+import { FormControl, FormGroup, Validators } from "@angular/forms";
 
 @Component({
   selector: 'app-article',
@@ -11,9 +12,12 @@ import { ArticleModel } from "../../services/database-connection/Models/ArticleM
 export class ArticleComponent implements OnInit {
   article: ArticleModel;
 
+
   constructor(private db: DatabaseService,
               private route: ActivatedRoute,
-              private router: Router) { }
+              private router: Router) {
+
+  }
 
   ngOnInit() {
     this.route.params.subscribe(value => {
@@ -27,5 +31,6 @@ export class ArticleComponent implements OnInit {
   articleNavigationClick(id) {
     this.router.navigateByUrl(`/article/${id}`)
   }
+
 
 }
