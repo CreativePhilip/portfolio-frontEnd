@@ -1,12 +1,12 @@
 export interface ArticleModel {
   id: number,
   title: string,
-  description: string,
+  text: string,
   preview_text: string,
   icon: string,
   category: [],
   previous_article: number,
   next_article: number,
   published: boolean,
-  upload_data: string | Date
+  upload_date: string | Date
 }

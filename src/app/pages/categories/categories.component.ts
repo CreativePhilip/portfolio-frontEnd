@@ -21,7 +21,7 @@ export class CategoriesComponent implements OnInit {
   }
 
   onCardClick(cat) {
-    this.router.navigateByUrl(`/categories/${cat.pk}`);
+    this.router.navigateByUrl(`/categories/${cat.id}`);
   }
 
 }
