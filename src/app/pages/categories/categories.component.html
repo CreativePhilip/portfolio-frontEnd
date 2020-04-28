@@ -1,7 +1,7 @@
 <app-main-nav></app-main-nav>
 
 <main>
-  <h1>Categories</h1>
+  <h1 class="title">Categories</h1>
   <div class="grid-container">
     <app-category-card *ngFor="let c of categories" [category]="c" (click)="onCardClick(c)"></app-category-card>
   </div>

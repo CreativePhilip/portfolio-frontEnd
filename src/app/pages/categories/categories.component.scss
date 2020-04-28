@@ -16,6 +16,10 @@ main {
   margin-bottom: 5em;
 }
 
+.title {
+  margin-top: 1em;
+}
+
 app-category-card {
   transition: transform .3s ease-in-out;
   &:hover {
@@ -24,10 +28,10 @@ app-category-card {
 }
 
 
-@media screen and (max-width: 1080px) {
+@media only screen and(max-width: 800px) {
   .grid-container {
     grid-template-columns: repeat(1, 1fr);
-    grid-gap: 2em;
+    grid-row-gap: 5vh;
   }
 }
 
