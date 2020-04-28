@@ -1,0 +1,21 @@
+<app-main-nav></app-main-nav>
+
+<div class="container">
+
+  <h1>Admin Panel Login</h1>
+
+  <form [formGroup]="form" role="form" (ngSubmit)="login()">
+    <label for="login">Login </label>
+    <input formControlName="username" class="text-input" id="login" type="text" placeholder="login">
+
+    <label for="password">Password </label>
+    <input formControlName="password" class="text-input" id="password" type="password" placeholder="password">
+
+    <label for="check">Keep me logged in </label>
+    <input formControlName="keepLoggedIn" id="check" type="checkbox">
+
+    <br>
+    <span (click)="login()" class="button"> Login </span>
+  </form>
+
+</div>
