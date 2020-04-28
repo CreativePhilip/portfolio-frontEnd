@@ -10,6 +10,10 @@ header {
 
   h1 {
     margin: .4em 0;
+    color: white;
+
+    user-select: none;
+    cursor: pointer;
   }
 }
 
