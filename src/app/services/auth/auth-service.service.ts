@@ -31,7 +31,10 @@ export class AuthService implements OnDestroy{
 
   constructor (private http: HttpClient,
                private store: Store<AuthState>) {
-    this.tokenCheck = setInterval(() => this.tokenRefresh(), 1000 * 60 * 4.5);
+  }
+
+  initTokenChecks() {
+    this.tokenCheck = setInterval(() => this.tokenRefresh(), 1000 * 60 * 4);
 
     this.subscription = this.store.select('auth').subscribe(value => {
       this.auth = value;
