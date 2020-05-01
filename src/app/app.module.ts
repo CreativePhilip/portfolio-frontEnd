@@ -18,7 +18,20 @@ import { TokenInterceptor } from "./services/token-interceptor/token-interceptor
 import { LoginComponent } from './pages/login/login.component';
 import { AdminHomeComponent } from './pages/admin/admin-home/admin-home.component';
 import { ReactiveFormsModule } from "@angular/forms";
+import { AdminArticlesComponent } from './pages/admin/admin-articles/admin-articles.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatTableModule } from "@angular/material/table";
+import { MatIconModule } from "@angular/material/icon";
+import { MatButtonModule } from "@angular/material/button";
+import { AdminArticlesEditComponent } from './pages/admin/admin-articles-edit/admin-articles-edit.component';
+import { MatCardModule } from "@angular/material/card";
+import { MatFormFieldModule } from "@angular/material/form-field";
+import { MatInputModule } from "@angular/material/input";
 
+
+import { EditorModule } from '@tinymce/tinymce-angular';
+import { MatSelectModule } from "@angular/material/select";
+import { MatCheckboxModule } from "@angular/material/checkbox";
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,7 +44,9 @@ import { ReactiveFormsModule } from "@angular/forms";
     ArticlesComponent,
     ArticleComponent,
     LoginComponent,
-    AdminHomeComponent
+    AdminHomeComponent,
+    AdminArticlesComponent,
+    AdminArticlesEditComponent
   ],
   imports: [
     BrowserModule,
@@ -41,6 +56,16 @@ import { ReactiveFormsModule } from "@angular/forms";
       auth: authReducer
     }),
     ReactiveFormsModule,
+    BrowserAnimationsModule,
+    MatTableModule,
+    MatIconModule,
+    MatButtonModule,
+    MatCardModule,
+    MatFormFieldModule,
+    MatInputModule,
+    EditorModule,
+    MatSelectModule,
+    MatCheckboxModule
   ],
   providers: [ { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi:true }],
   bootstrap: [AppComponent]
