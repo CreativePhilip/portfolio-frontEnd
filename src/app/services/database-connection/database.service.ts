@@ -10,9 +10,10 @@ import { MiniArticleModel } from "./Models/MiniArticleModel";
 })
 export class DatabaseService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+  }
 
-  getArticles() { return this.http.get<ArticleModel[]>(DatabaseEndpoints.articles, {}); }
+  getArticles() { return this.http.get<ArticleModel[]>(`${DatabaseEndpoints.articles}/published/`, {}); }
 
   /**
    * returns all articles minified, published or not, requires administrator level privileges, excludes the one supplied
@@ -33,9 +34,13 @@ export class DatabaseService {
   getArticle(id) { return this.http.get<ArticleModel>(`${DatabaseEndpoints.articles}${id}/`, {}); }
 
   createArticle(payload) { return this.http.post<ArticleModel>(`${DatabaseEndpoints.articles}`, payload); }
-  updateArticle(payload) { return this.http.put<ArticleModel>(`${DatabaseEndpoints.articles}`, payload); }
+  updateArticle(id, payload) { return this.http.patch<ArticleModel>(`${DatabaseEndpoints.articles}${id}/`, payload); }
+
   updateArticleCategories(id, payload) {return this.http.post(`${DatabaseEndpoints.articles}${id}/edit_categories/`, payload)}
 
   getCategories() { return this.http.get<CategoryModel[]>(DatabaseEndpoints.categories, {}); }
   getCategory(id) { return this.http.get<CategoryModel>(`${DatabaseEndpoints.categories}${id}/`, {}); }
+
+
+  getImageFromServer(link) { return this.http.get(link, {responseType: "blob"}); }
 }

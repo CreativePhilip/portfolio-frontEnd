@@ -1,20 +1,45 @@
 .container {
-  padding: 4em;
-  margin: 2em;
+  display: flex;
+  overflow: hidden;
+}
 
-  background-color: white;
+.side-bar {
+  background-color: #40b2e3;
 
-  display: grid;
-  grid-gap: 5vw;
-  grid-template-columns: repeat(2, 1fr);
 }
 
 .card {
   box-shadow: 0 1px 3px black;
-  border-radius: 20px;
-  padding: 2em;
+  border-radius: 2px;
 
-  svg {
-    height: 20vh;
-  }
+  background-color: white;
+
+  padding: .2em .5em;
+  margin: .3em .5em;
+
+
+  display: flex;
+
+  cursor: pointer;
+  user-select: none;
 }
+
+.card-icon {
+  width: 1vw;
+  margin-right: .5em;
+}
+
+.main-content {
+  width: 100%;
+  overflow: scroll;
+}
+
+.active-sub-page {
+  height: available;
+  width: 100%;
+}
+
+.logout-button {
+  margin-top: auto;
+}
+

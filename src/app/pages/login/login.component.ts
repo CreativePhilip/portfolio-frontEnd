@@ -44,6 +44,7 @@ export class LoginComponent implements OnInit {
           this.router.navigateByUrl('/admin');
       },
           error => {
+          console.log(error)
           this.router.navigateByUrl("/")
           })
     }

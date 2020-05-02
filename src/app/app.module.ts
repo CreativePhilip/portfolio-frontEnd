@@ -32,6 +32,7 @@ import { MatInputModule } from "@angular/material/input";
 import { EditorModule } from '@tinymce/tinymce-angular';
 import { MatSelectModule } from "@angular/material/select";
 import { MatCheckboxModule } from "@angular/material/checkbox";
+import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
 @NgModule({
   declarations: [
     AppComponent,
@@ -48,25 +49,26 @@ import { MatCheckboxModule } from "@angular/material/checkbox";
     AdminArticlesComponent,
     AdminArticlesEditComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    StoreModule.forRoot({
-      auth: authReducer
-    }),
-    ReactiveFormsModule,
-    BrowserAnimationsModule,
-    MatTableModule,
-    MatIconModule,
-    MatButtonModule,
-    MatCardModule,
-    MatFormFieldModule,
-    MatInputModule,
-    EditorModule,
-    MatSelectModule,
-    MatCheckboxModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        HttpClientModule,
+        StoreModule.forRoot({
+            auth: authReducer
+        }),
+        ReactiveFormsModule,
+        BrowserAnimationsModule,
+        MatTableModule,
+        MatIconModule,
+        MatButtonModule,
+        MatCardModule,
+        MatFormFieldModule,
+        MatInputModule,
+        EditorModule,
+        MatSelectModule,
+        MatCheckboxModule,
+        MatProgressSpinnerModule
+    ],
   providers: [ { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi:true }],
   bootstrap: [AppComponent]
 })

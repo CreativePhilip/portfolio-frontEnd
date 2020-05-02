@@ -23,7 +23,7 @@ export interface TokenRefresh {
 })
 export class AuthService implements OnDestroy{
 
-  rootUrl = environment.apiUrl;
+  rootUrl = `${environment.apiUrl}/`;
   tokenCheck;
   auth: AuthModel;
   jwtHelper: JwtHelperService = new JwtHelperService();
