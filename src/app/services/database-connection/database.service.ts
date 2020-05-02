@@ -26,9 +26,8 @@ export class DatabaseService {
   getAllArticles(id) { return this.http.get<ArticleModel[]>(`${DatabaseEndpoints.articles}${id}/all_articles/`, {}); }
 
   getArticlesByCategory(categoryId) {
-    let params = new HttpParams().set("category", categoryId);
 
-    return this.http.get<ArticleModel[]>(DatabaseEndpoints.articles, { params: params });
+    return this.http.get<ArticleModel[]>(`${DatabaseEndpoints.articles}${categoryId}/by_category/`,  {});
   }
 
   getArticle(id) { return this.http.get<ArticleModel>(`${DatabaseEndpoints.articles}${id}/`, {}); }
