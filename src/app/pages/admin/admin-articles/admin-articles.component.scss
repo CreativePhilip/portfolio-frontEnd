@@ -1,0 +1,17 @@
+table, app-admin-articles-edit {
+  width: 100%;
+}
+
+.container {
+  padding: 2em 3em;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.create-article {
+  align-self: end;
+  background-color: forestgreen;
+  margin: .5em;
+}

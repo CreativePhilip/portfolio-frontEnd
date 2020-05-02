@@ -1,0 +1,71 @@
+<mat-card>
+  <mat-card-header *ngIf="article == null">Create Article</mat-card-header>
+  <mat-card-header *ngIf="article != null">Edit Article</mat-card-header>
+
+  <form [formGroup]="form" role="form">
+    <mat-form-field class="form-element">
+      <mat-label>Title</mat-label>
+      <input formControlName="title" matInput placeholder="Article title">
+      <mat-error *ngIf="hasError('title', 'required')">Article title is required</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="form-element">
+      <mat-label>Preview Text</mat-label>
+      <input formControlName="preview_text" matInput placeholder="Article title">
+      <mat-error *ngIf="hasError('preview_text', 'required')">Article preview text is required</mat-error>
+    </mat-form-field>
+
+    <div class="icon-picker">
+      <input #iconInput type="file" id="icon_input" (change)="iconPicker(iconInput)" hidden accept="image/*">
+      <label for="icon_input"><button mat-raised-button color="primary" (click)="iconInput.click()">Select File</button></label>
+
+      <img *ngIf="downloadedImageData !== undefined" [src]="downloadedImageData" alt="imago" class="preview-icon">
+      <img *ngIf="downloadedImageData === undefined" [src]="selectedImageData" alt="imago" class="preview-icon">
+
+      <mat-form-field class="form-element icon-label">
+        <mat-label>Icon</mat-label>
+        <input matInput [value]="form.controls.icon.value?.name">
+        <mat-error *ngIf="hasError('icon', 'required')">Icon is required</mat-error>
+      </mat-form-field>
+    </div>
+
+    <editor apiKey="3yehonyxa2vu4mcrt70hvsq3u5014t01hteazwtxmx3yxbek" [init]="tinyMceSettings" (onKeyPress)="articleTextUpdate($event)" [initialValue]="form.controls.text.value"></editor>
+
+    <mat-form-field class="form-element">
+      <mat-label>Categories</mat-label>
+      <mat-select multiple formControlName="category">
+        <mat-option *ngFor="let c of categoryList" [value]="c.id">{{c.name}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="form-element">
+      <mat-label>Previous article</mat-label>
+      <mat-select formControlName="previous_article">
+        <mat-option [value]="null">None</mat-option>
+        <mat-option *ngFor="let a of articleList" [value]="a.id">{{a.title}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="form-element">
+      <mat-label>Previous article</mat-label>
+      <mat-select formControlName="next_article">
+        <mat-option [value]="null">None</mat-option>
+        <mat-option *ngFor="let a of articleList" [value]="a.id">{{a.title}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <label for="published"></label>
+    <input type="checkbox" id="published" hidden>
+
+    <div class="published-container">
+      <h4>Published</h4>
+      <button (click)="publishedButtonHandler(true)" *ngIf="this.form.controls.published.value === true" mat-raised-button class="publish-true">True</button>
+      <button (click)="publishedButtonHandler(false)" *ngIf="this.form.controls.published.value === false" mat-raised-button class="publish-false">False</button>
+
+    </div>
+
+    <button *ngIf="article == null" [disabled]="!form.valid || loading" (click)="submitForm()" mat-raised-button class="publish-true submit-form">Create article</button>
+    <button *ngIf="article != null" [disabled]="!form.valid || loading" (click)="submitForm()" mat-raised-button class="publish-true submit-form">Save article</button>
+
+  </form>
+</mat-card>
