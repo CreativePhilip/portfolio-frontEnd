@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DatabaseService } from "../../../services/database-connection/database.service";
 import { ArticleModel } from "../../../services/database-connection/Models/ArticleModel";
+import { MatDialog } from "@angular/material/dialog";
 
 @Component({
   selector: 'app-admin-articles',
@@ -9,12 +10,13 @@ import { ArticleModel } from "../../../services/database-connection/Models/Artic
 })
 export class AdminArticlesComponent implements OnInit {
   articleList: ArticleModel[] = [];
-  tableColumns: string[] = ['id', 'title', 'preview', 'upload_date', 'actions']
+  tableColumns: string[] = ['id', 'title', 'preview', 'upload_date', 'published', 'actions']
 
   edit = false;
   selectedArticle = null;
 
-  constructor(private db: DatabaseService) { }
+  constructor(private db: DatabaseService) {
+  }
 
   ngOnInit() {
     this.articleList = [];
@@ -29,13 +31,19 @@ export class AdminArticlesComponent implements OnInit {
 
 
   editHandler(article) {
-    this.edit = true;
-    this.selectedArticle = article;
+    this.edit = false;
+    setTimeout(() =>{
+      this.edit = true;
+      this.selectedArticle = article;
+    }, 1)
   }
 
   createHandler() {
-    this.edit = true;
-    this.selectedArticle = null;
+    this.edit = false;
+    setTimeout(() =>{
+      this.edit = true;
+      this.selectedArticle = null;
+    }, 1)
   }
 
   crudAction(val) {

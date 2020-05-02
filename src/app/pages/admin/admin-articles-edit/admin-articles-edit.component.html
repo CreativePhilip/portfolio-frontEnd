@@ -19,8 +19,8 @@
       <input #iconInput type="file" id="icon_input" (change)="iconPicker(iconInput)" hidden accept="image/*">
       <label for="icon_input"><button mat-raised-button color="primary" (click)="iconInput.click()">Select File</button></label>
 
-      <img *ngIf="downloadedImageData !== undefined" [src]="downloadedImageData" alt="imago" class="preview-icon">
-      <img *ngIf="downloadedImageData === undefined" [src]="selectedImageData" alt="imago" class="preview-icon">
+      <img *ngIf="downloadedImageData !== undefined" [src]="downloadedImageData" alt="preview" class="preview-icon">
+      <img *ngIf="downloadedImageData === undefined" [src]="selectedImageData" alt="preview" class="preview-icon">
 
       <mat-form-field class="form-element icon-label">
         <mat-label>Icon</mat-label>
