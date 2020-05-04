@@ -13,7 +13,7 @@ export class DatabaseService {
   constructor(private http: HttpClient) {
   }
 
-  getArticles() { return this.http.get<ArticleModel[]>(`${DatabaseEndpoints.articles}/published/`, {}); }
+  getArticles() { return this.http.get<ArticleModel[]>(`${DatabaseEndpoints.articles}${-1}/all_published/`, {}); }
 
   /**
    * returns all articles minified, published or not, requires administrator level privileges, excludes the one supplied
@@ -30,7 +30,7 @@ export class DatabaseService {
     return this.http.get<ArticleModel[]>(`${DatabaseEndpoints.articles}${categoryId}/by_category/`,  {});
   }
 
-  getArticle(id) { return this.http.get<ArticleModel>(`${DatabaseEndpoints.articles}${id}/`, {}); }
+  getArticle(id) { return this.http.get<ArticleModel>(`${DatabaseEndpoints.articles}${id}/published/`, {}); }
 
   createArticle(payload) { return this.http.post<ArticleModel>(`${DatabaseEndpoints.articles}`, payload); }
   updateArticle(id, payload) { return this.http.patch<ArticleModel>(`${DatabaseEndpoints.articles}${id}/`, payload); }

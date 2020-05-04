@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { MainFooterComponent } from './main-footer.component';
+import { AttributionsComponent } from "../../attributions/attributions.component";
 
 describe('MainFooterComponent', () => {
   let component: MainFooterComponent;
@@ -8,7 +9,8 @@ describe('MainFooterComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MainFooterComponent ]
+      declarations: [ MainFooterComponent, AttributionsComponent ],
+      imports: []
     })
     .compileComponents();
   }));

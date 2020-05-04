@@ -13,7 +13,6 @@ import { AuthModel } from "../../state-management/auth-state/auth-model";
 
 @Injectable()
 export class TokenInterceptor implements HttpInterceptor, OnDestroy {
-  private tokenUtils = new JwtHelperService();
   private authData: AuthModel;
   private subscription;
 
