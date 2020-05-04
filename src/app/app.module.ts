@@ -33,6 +33,10 @@ import { EditorModule } from '@tinymce/tinymce-angular';
 import { MatSelectModule } from "@angular/material/select";
 import { MatCheckboxModule } from "@angular/material/checkbox";
 import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
+import { MatSnackBarModule } from "@angular/material/snack-bar";
+import { LoadingIndicatorComponent } from './components/loading-indicator/loading-indicator.component';
+import { MatProgressBarModule } from "@angular/material/progress-bar";
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,28 +51,31 @@ import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
     LoginComponent,
     AdminHomeComponent,
     AdminArticlesComponent,
-    AdminArticlesEditComponent
+    AdminArticlesEditComponent,
+    LoadingIndicatorComponent
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        HttpClientModule,
-        StoreModule.forRoot({
-            auth: authReducer
-        }),
-        ReactiveFormsModule,
-        BrowserAnimationsModule,
-        MatTableModule,
-        MatIconModule,
-        MatButtonModule,
-        MatCardModule,
-        MatFormFieldModule,
-        MatInputModule,
-        EditorModule,
-        MatSelectModule,
-        MatCheckboxModule,
-        MatProgressSpinnerModule
-    ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    StoreModule.forRoot({
+      auth: authReducer
+    }),
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    MatTableModule,
+    MatIconModule,
+    MatButtonModule,
+    MatCardModule,
+    MatFormFieldModule,
+    MatInputModule,
+    EditorModule,
+    MatSelectModule,
+    MatCheckboxModule,
+    MatProgressSpinnerModule,
+    MatSnackBarModule,
+    MatProgressBarModule
+  ],
   providers: [ { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi:true }],
   bootstrap: [AppComponent]
 })

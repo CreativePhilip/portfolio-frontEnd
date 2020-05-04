@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DatabaseService } from "../../../services/database-connection/database.service";
 import { ArticleModel } from "../../../services/database-connection/Models/ArticleModel";
-import { MatDialog } from "@angular/material/dialog";
 
 @Component({
   selector: 'app-admin-articles',
@@ -15,6 +14,8 @@ export class AdminArticlesComponent implements OnInit {
   edit = false;
   selectedArticle = null;
 
+  loadingData = false;
+
   constructor(private db: DatabaseService) {
   }
 
@@ -25,7 +26,7 @@ export class AdminArticlesComponent implements OnInit {
       for (let a of this.articleList) {
         a.upload_date = new Date(a.upload_date);
       }
-
+      this.loadingData = false;
     });
   }
 

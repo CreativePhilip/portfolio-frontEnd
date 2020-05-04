@@ -4,6 +4,7 @@ import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { CategoryModel } from "../../../services/database-connection/Models/CategoryModel";
 import { DatabaseService } from "../../../services/database-connection/database.service";
 import { MiniArticleModel } from "../../../services/database-connection/Models/MiniArticleModel";
+import { MatSnackBar } from "@angular/material/snack-bar";
 
 
 @Component({
@@ -21,8 +22,6 @@ export class AdminArticlesEditComponent implements OnInit {
   downloadedImageData;
   selectedImageData;
 
-  loading = false;
-
   tinyMceSettings = {
     height: 500,
     menubar: true,
@@ -38,7 +37,8 @@ export class AdminArticlesEditComponent implements OnInit {
   };
 
   form: FormGroup;
-  constructor(private db: DatabaseService) { }
+  constructor(private db: DatabaseService,
+              private snackBar: MatSnackBar) { }
 
   ngOnInit() {
     this.form = new FormGroup({
@@ -151,6 +151,7 @@ export class AdminArticlesEditComponent implements OnInit {
     if (this.form.valid) {
       this.db.createArticle(data).subscribe(value => {
         this.db.updateArticleCategories(value.id, category).subscribe(() => {
+          this.showMessage("Article created");
           this.actionSuccess.emit(true);
         })
       });
@@ -161,10 +162,15 @@ export class AdminArticlesEditComponent implements OnInit {
     if (this.form.valid) {
       this.db.updateArticle(this.article.id, data).subscribe(value => {
         this.db.updateArticleCategories(value.id, category).subscribe(() => {
+          this.showMessage("Updated article");
           this.actionSuccess.emit(true);
         })
       })
     }
+  }
+
+  showMessage(message: string) {
+    this.snackBar.open(message, '',{duration: 2000});
   }
 
 }

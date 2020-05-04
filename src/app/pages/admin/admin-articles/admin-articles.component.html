@@ -1,4 +1,7 @@
 <div class="container">
+  <h1>Articles management</h1>
+
+  <app-admin-articles-edit *ngIf="edit" [article]="selectedArticle" (actionSuccess)="crudAction($event)"></app-admin-articles-edit>
 
   <button mat-raised-button class="create-article" (click)="createHandler()">Create Article</button>
 
@@ -39,7 +42,7 @@
     <tr mat-row *matRowDef="let row; columns: tableColumns;"></tr>
   </table>
 
-  <app-admin-articles-edit *ngIf="edit" [article]="selectedArticle" (actionSuccess)="crudAction($event)"></app-admin-articles-edit>
+  <app-loading-indicator *ngIf="loadingData"></app-loading-indicator>
 </div>
 
 

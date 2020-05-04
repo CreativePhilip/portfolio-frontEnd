@@ -66,6 +66,7 @@
 
     <button *ngIf="article == null" [disabled]="!form.valid || loading" (click)="submitForm()" mat-raised-button class="publish-true submit-form">Create article</button>
     <button *ngIf="article != null" [disabled]="!form.valid || loading" (click)="submitForm()" mat-raised-button class="publish-true submit-form">Save article</button>
+    <button class="cancel-button" mat-raised-button color="accent" (click)="actionSuccess.emit(false)">Cancel</button>
 
   </form>
 </mat-card>
