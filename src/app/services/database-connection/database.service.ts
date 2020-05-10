@@ -40,6 +40,8 @@ export class DatabaseService {
   getCategories() { return this.http.get<CategoryModel[]>(DatabaseEndpoints.categories, {}); }
   getCategory(id) { return this.http.get<CategoryModel>(`${DatabaseEndpoints.categories}${id}/`, {}); }
 
+  createCategory(payload) { return this.http.post(DatabaseEndpoints.categories, payload); }
+  updateCategory (id, payload) { return this.http.patch(`${DatabaseEndpoints.categories}${id}/`, payload); }
 
   getImageFromServer(link) { return this.http.get(link, {responseType: "blob"}); }
 }

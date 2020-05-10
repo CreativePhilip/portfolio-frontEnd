@@ -63,7 +63,6 @@ export class AdminArticlesEditComponent implements OnInit {
     this.form.patchValue({title: this.article.title});
     this.form.patchValue({preview_text: this.article.preview_text});
     this.form.patchValue({text: this.article.text});
-    this.form.patchValue({icon: this.article.icon});
     this.form.patchValue({category: this.article.categories});
     this.form.patchValue({previous_article: this.article.previous_article});
     this.form.patchValue({next_article: this.article.next_article});

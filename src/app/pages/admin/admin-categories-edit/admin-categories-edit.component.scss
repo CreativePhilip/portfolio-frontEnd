@@ -1,0 +1,35 @@
+mat-card {
+  margin-top: 2em;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form-element, form {
+  width: 100%;
+}
+
+.icon-picker {
+  display: flex;
+
+  gap: .5em;
+}
+
+.icon-label {
+  margin-left: .5em;
+}
+
+.preview-icon {
+  height: 10vmin;
+
+  margin: .4em;
+}
+
+.cancel-button {
+  margin-left: 1em;
+}
+
+.submit-form {
+  margin-top: 1em;
+}

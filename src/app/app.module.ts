@@ -36,6 +36,8 @@ import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
 import { MatSnackBarModule } from "@angular/material/snack-bar";
 import { LoadingIndicatorComponent } from './components/loading-indicator/loading-indicator.component';
 import { MatProgressBarModule } from "@angular/material/progress-bar";
+import { AdminCategoriesComponent } from './pages/admin/admin-categories/admin-categories.component';
+import { AdminCategoriesEditComponent } from './pages/admin/admin-categories-edit/admin-categories-edit.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +54,9 @@ import { MatProgressBarModule } from "@angular/material/progress-bar";
     AdminHomeComponent,
     AdminArticlesComponent,
     AdminArticlesEditComponent,
-    LoadingIndicatorComponent
+    LoadingIndicatorComponent,
+    AdminCategoriesComponent,
+    AdminCategoriesEditComponent
   ],
   imports: [
     BrowserModule,
