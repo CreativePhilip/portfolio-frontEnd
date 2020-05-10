@@ -4,6 +4,7 @@ import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { CategoryModel } from "../../../services/database-connection/Models/CategoryModel";
 import { DatabaseService } from "../../../services/database-connection/database.service";
 import { MiniArticleModel } from "../../../services/database-connection/Models/MiniArticleModel";
+// @ts-ignore
 import { MatSnackBar } from "@angular/material/snack-bar";
 
 

@@ -6,6 +6,14 @@ export class DatabaseServiceMock {
     return of()
   }
 
+  getAllArticles() {
+    return of()
+  }
+
+  getAllArticlesMini(number) {
+    return of()
+  }
+
   getCategories() {
     return of()
   }

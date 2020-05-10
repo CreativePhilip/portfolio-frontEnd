@@ -38,7 +38,7 @@ export class AdminCategoriesEditComponent implements OnInit {
   }
 
   ngOnInit() {
-    if (this.category !== null) {
+    if (this.category) {
       this.loadSelectedData();
     }
   }

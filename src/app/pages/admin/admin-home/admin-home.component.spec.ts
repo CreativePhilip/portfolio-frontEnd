@@ -6,8 +6,6 @@ import { AdminArticlesComponent } from "../admin-articles/admin-articles.compone
 import { RouterTestingModule } from "@angular/router/testing";
 import { DatabaseService } from "../../../services/database-connection/database.service";
 import { DatabaseServiceMock } from "../../../services/database-connection/database.service.mock";
-import { MatIcon } from "@angular/material/icon";
-import { MatHeaderRowDef, MatTable } from "@angular/material/table";
 import { AdminArticlesEditComponent } from "../admin-articles-edit/admin-articles-edit.component";
 
 describe('AdminHomeComponent', () => {
@@ -20,11 +18,7 @@ describe('AdminHomeComponent', () => {
         AdminHomeComponent,
         MainNavComponent,
         AdminArticlesComponent,
-        MatIcon,
-        MatTable,
-        MatHeaderRowDef,
         AdminArticlesEditComponent,
-        MatHeaderRowDef
       ],
       imports: [RouterTestingModule],
       providers: [{provide: DatabaseService, useClass: DatabaseServiceMock}]

@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AdminCategoriesComponent } from './admin-categories.component';
+import { DatabaseService } from "../../../services/database-connection/database.service";
+import { DatabaseServiceMock } from "../../../services/database-connection/database.service.mock";
 
 describe('AdminCategoriesComponent', () => {
   let component: AdminCategoriesComponent;
@@ -8,7 +10,8 @@ describe('AdminCategoriesComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AdminCategoriesComponent ]
+      declarations: [ AdminCategoriesComponent ],
+      providers: [{provide: DatabaseService, useClass: DatabaseServiceMock}]
     })
     .compileComponents();
   }));
