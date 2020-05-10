@@ -25,4 +25,8 @@ describe('AdminCategoriesComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should have the category edit component hidden', function () {
+    expect(component.editing).toBeFalsy();
+  });
 });

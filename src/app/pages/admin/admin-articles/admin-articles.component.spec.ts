@@ -40,4 +40,8 @@ describe('AdminArticlesComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should have article edit component be hidden', function () {
+    expect(component.edit).toBeFalsy();
+  });
 });
