@@ -10,13 +10,6 @@ export class MainNavComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    if (this.floating) {
-      let header = document.querySelector('header');
-      let filler = document.getElementById('dummy-container');
-      filler.style.height =`${header.scrollHeight}px`;
-
-      header.classList.add("float-top");
-    }
   }
 
 }

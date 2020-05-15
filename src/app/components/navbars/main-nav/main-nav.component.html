@@ -1,4 +1,4 @@
-<header>
+<header [class.float-top]="floating">
   <h1 class="logo" routerLink="/">Logo</h1>
   <input type="checkbox" id="navbar-toggle" class="navbar-toggle">
   <label for="navbar-toggle" class="navbar-toggle-label"><span></span></label>
@@ -12,6 +12,6 @@
 </header>
 
 <!-- container for adding the height so the content would be bellow the nav -->
-<div class="dummy-container" id="dummy-container"></div>
+<div [class.dummy-container]="floating"></div>
 
 

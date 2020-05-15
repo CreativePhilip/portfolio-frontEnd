@@ -108,8 +108,14 @@ nav {
 
 .float-top {
   position: fixed;
-  width: 100%;
+
+  left: 0;
+  right: 0;
   top: 0;
+}
+
+.dummy-container {
+  margin-top: 11vh;
 }
 
 @media screen and (min-width: 800px) {
