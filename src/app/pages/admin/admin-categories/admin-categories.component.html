@@ -2,7 +2,7 @@
 
   <h1>Categories management</h1>
   <app-admin-categories-edit *ngIf="editing" [category]="selectedCategory" (actionSuccess)="crudAction()"></app-admin-categories-edit>
-  <button mat-raised-button class="create-article" (click)="createCategory()">Create Article</button>
+  <button mat-raised-button class="create-article" (click)="createCategory()">Create Category</button>
 
   <table mat-table [dataSource]="categoryList" class="mat-elevation-z8">
 

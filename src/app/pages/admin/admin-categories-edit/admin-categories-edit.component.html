@@ -11,7 +11,9 @@
 
     <div class="icon-picker">
       <input #iconInput type="file" id="icon_input" (change)="iconPicker(iconInput)" hidden accept="image/*">
-      <label for="icon_input"><button mat-raised-button color="primary" (click)="iconInput.click()">Select File</button></label>
+      <label for="icon_input">
+        <button mat-raised-button color="primary" (click)="iconInput.click()">Select File</button>
+      </label>
 
       <img *ngIf="downloadedImageData !== undefined" [src]="downloadedImageData" alt="preview" class="preview-icon">
       <img *ngIf="downloadedImageData === undefined" [src]="selectedImageData" alt="preview" class="preview-icon">
@@ -22,10 +24,15 @@
       </mat-form-field>
     </div>
 
-    <editor apiKey="3yehonyxa2vu4mcrt70hvsq3u5014t01hteazwtxmx3yxbek" [init]="tinyMceSettings" (onKeyPress)="descriptionUpdate($event)" [initialValue]="form.controls.description.value"></editor>
+    <editor apiKey="3yehonyxa2vu4mcrt70hvsq3u5014t01hteazwtxmx3yxbek" [init]="tinyMceSettings"
+            (onKeyPress)="descriptionUpdate($event)" [initialValue]="form.controls.description.value"></editor>
 
-    <button *ngIf="category == null" [disabled]="!form.valid" (click)="submitForm()" mat-raised-button class="publish-true submit-form">Create article</button>
-    <button *ngIf="category != null" [disabled]="!form.valid" (click)="submitForm()" mat-raised-button class="publish-true submit-form">Save article</button>
+    <button *ngIf="category == null" [disabled]="!form.valid" (click)="submitForm()" mat-raised-button
+            class="publish-true submit-form">Create category
+    </button>
+    <button *ngIf="category != null" [disabled]="!form.valid" (click)="submitForm()" mat-raised-button
+            class="publish-true submit-form">Save category
+    </button>
     <button class="cancel-button" mat-raised-button color="accent" (click)="actionSuccess.emit(false)">Cancel</button>
 
   </form>

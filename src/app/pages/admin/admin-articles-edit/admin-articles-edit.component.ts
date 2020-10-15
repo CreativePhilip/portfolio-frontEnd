@@ -46,7 +46,7 @@ export class AdminArticlesEditComponent implements OnInit {
       title: new FormControl('', [Validators.required]),
       preview_text: new FormControl('', [Validators.required]),
       text: new FormControl('', []),
-      icon: new FormControl('', [Validators.required]),
+      icon: new FormControl('', []),
       category: new FormControl('', []),
       previous_article: new FormControl('', []),
       next_article: new FormControl('', []),
