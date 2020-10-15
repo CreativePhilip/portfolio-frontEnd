@@ -1,36 +1,8 @@
 .category_description {
-  background-color: white;
-  border-radius: 20px;
-  box-shadow: 0 1px 3px black;
-
-  margin: 2em;
-
   display: flex;
 
-  overflow: hidden;
-
-  max-height: 20vh;
-  transition: max-height ease-in-out 400ms;
-
-  &:hover {
-    max-height: 500px;
-    transition: max-height ease-in-out 400ms;
-  }
-
-  &__data {
-    display: flex;
-    flex-direction: column;
-
-    width: 100%;
-  }
-
-  .category_name {
-    align-self: center;
-  }
-
   img {
-    height: 20vh;
-    margin-right: 2em;
+    margin-right: 1em;
   }
 }
 

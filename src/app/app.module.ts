@@ -38,7 +38,7 @@ import {LoadingIndicatorComponent} from './components/loading-indicator/loading-
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {AdminCategoriesComponent} from './pages/admin/admin-categories/admin-categories.component';
 import {AdminCategoriesEditComponent} from './pages/admin/admin-categories-edit/admin-categories-edit.component';
-import {NbButtonModule, NbLayoutModule, NbThemeModule} from '@nebular/theme';
+import {NbButtonModule, NbCardModule, NbLayoutModule, NbThemeModule} from '@nebular/theme';
 import {NbEvaIconsModule} from '@nebular/eva-icons';
 
 
@@ -85,7 +85,8 @@ import {NbEvaIconsModule} from '@nebular/eva-icons';
               NbThemeModule.forRoot({name: 'corporate'}),
               NbLayoutModule,
               NbEvaIconsModule,
-              NbButtonModule
+              NbButtonModule,
+              NbCardModule
             ],
             providers: [{provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true}],
             bootstrap: [AppComponent]

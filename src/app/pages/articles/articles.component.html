@@ -1,13 +1,13 @@
-<app-main-nav></app-main-nav>
-
-<div class="category_description">
-  <img alt="Category image" src="https://picsum.photos/300/150">
-
-  <div class="category_description__data">
-    <h1 class="category_name">{{currentCategory?.name}}</h1>
+<nb-card>
+  <nb-card-header> {{ currentCategory?.name }} </nb-card-header>
+  <nb-card-body><div class="category_description">
+    <img alt="Category image" src="https://picsum.photos/300/150">
     <p [innerHTML]="currentCategory?.description"></p>
-  </div>
-</div>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ad aliquid architecto at consequuntur cum cumque debitis delectus dicta, ducimus eaque eius eos eum eveniet ex fuga illum ipsam labore maiores neque, odit omnis quae quaerat quam quia quidem quis quisquam quod recusandae sed sequi voluptate voluptates voluptatum. Accusamus amet dignissimos doloribus ducimus eligendi eos eveniet fugiat illo inventore ipsum iure magni mollitia natus quae quos repellat saepe, similique sint soluta ullam unde voluptate voluptates, voluptatibus. Accusamus blanditiis dolorum est laborum minima nisi odio repudiandae tempora ullam unde! Doloremque eveniet id ipsum neque perferendis possimus quam reiciendis, reprehenderit sed soluta!</p>
+  </div></nb-card-body>
+</nb-card>
+
+
 
 <div *ngFor="let article of articleList" class="article">
   <img alt="Article image" src="https://picsum.photos/300/150">
@@ -17,5 +17,11 @@
   </div>
   <span (click)="articleReadClick(article)" class="read-button">Read</span>
 </div>
+
+<nb-card *ngFor="let article of articleList">
+  <nb-card-header><a nbButton routerLink="/article/{{ article.id }}">{{ article.title }}</a></nb-card-header>
+  <nb-card-body><editor [initialValue]="article.preview_text" [init]="editorSettings" inline="true"
+                        disabled="true"></editor></nb-card-body>
+</nb-card>
 
 
