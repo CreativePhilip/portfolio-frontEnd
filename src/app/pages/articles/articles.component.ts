@@ -15,10 +15,6 @@ export class ArticlesComponent implements OnInit, OnDestroy {
   articleList: ArticleModel[]
   private routeParamSubscription
 
-  editorSettings = {
-    readonly: true
-  }
-
   constructor(private db: DatabaseService,
               private route: ActivatedRoute,
               private router: Router) {
