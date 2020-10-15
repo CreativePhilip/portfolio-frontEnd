@@ -1,17 +1,19 @@
-<header [class.float-top]="floating">
-  <h1 class="logo" routerLink="/">Logo</h1>
-  <input type="checkbox" id="navbar-toggle" class="navbar-toggle">
-  <label for="navbar-toggle" class="navbar-toggle-label"><span></span></label>
-  <nav>
-    <ul>
-      <li><a [routerLink]="null">Blog</a></li>
-      <li><a routerLink="/categories">Projects</a></li>
-      <li><a [routerLink]="null">About Me</a></li>
-    </ul>
-  </nav>
-</header>
+<div class="container">
+  <h3>Philip Policki Portfolio</h3>
+  <div class="spacer"></div>
+  <a nbButton routerLink="/categories">Projects</a>
+</div>
 
-<!-- container for adding the height so the content would be bellow the nav -->
-<div [class.dummy-container]="floating"></div>
+
+<!--<h1 class="logo" routerLink="/">Logo</h1>-->
+<!--<input type="checkbox" id="navbar-toggle" class="navbar-toggle">-->
+<!--<label for="navbar-toggle" class="navbar-toggle-label"><span></span></label>-->
+<!--<nav>-->
+<!--  <ul>-->
+<!--    <li><a [routerLink]="null">Blog</a></li>-->
+<!--    <li><a routerLink="/categories">Projects</a></li>-->
+<!--    <li><a [routerLink]="null">About Me</a></li>-->
+<!--  </ul>-->
+<!--</nav>-->
 
 

@@ -38,6 +38,8 @@ import { LoadingIndicatorComponent } from './components/loading-indicator/loadin
 import { MatProgressBarModule } from "@angular/material/progress-bar";
 import { AdminCategoriesComponent } from './pages/admin/admin-categories/admin-categories.component';
 import { AdminCategoriesEditComponent } from './pages/admin/admin-categories-edit/admin-categories-edit.component';
+import {NbThemeModule, NbLayoutModule, NbButtonModule} from '@nebular/theme';
+import { NbEvaIconsModule } from '@nebular/eva-icons';
 
 @NgModule({
   declarations: [
@@ -58,28 +60,32 @@ import { AdminCategoriesEditComponent } from './pages/admin/admin-categories-edi
     AdminCategoriesComponent,
     AdminCategoriesEditComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    StoreModule.forRoot({
-      auth: authReducer
-    }),
-    ReactiveFormsModule,
-    BrowserAnimationsModule,
-    MatTableModule,
-    MatIconModule,
-    MatButtonModule,
-    MatCardModule,
-    MatFormFieldModule,
-    MatInputModule,
-    EditorModule,
-    MatSelectModule,
-    MatCheckboxModule,
-    MatProgressSpinnerModule,
-    MatSnackBarModule,
-    MatProgressBarModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        HttpClientModule,
+        StoreModule.forRoot({
+            auth: authReducer
+        }),
+        ReactiveFormsModule,
+        BrowserAnimationsModule,
+        MatTableModule,
+        MatIconModule,
+        MatButtonModule,
+        MatCardModule,
+        MatFormFieldModule,
+        MatInputModule,
+        EditorModule,
+        MatSelectModule,
+        MatCheckboxModule,
+        MatProgressSpinnerModule,
+        MatSnackBarModule,
+        MatProgressBarModule,
+        NbThemeModule.forRoot({name: 'corporate'}),
+        NbLayoutModule,
+        NbEvaIconsModule,
+        NbButtonModule
+    ],
   providers: [ { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi:true }],
   bootstrap: [AppComponent]
 })
