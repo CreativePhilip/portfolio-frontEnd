@@ -1,12 +1,14 @@
-<app-main-nav [floating]="true"></app-main-nav>
+<app-main-nav></app-main-nav>
 
 <div class="article-container">
   <h1 id="title">{{article?.title}}</h1>
-  <p id="text" [innerHTML]="article?.text"></p>
+  <p [innerHTML]="article?.text" id="text"></p>
 
   <div class="buttons">
-    <span (click)="articleNavigationClick(article?.previous_article)" *ngIf="article?.previous_article !== null" class="button" id="prev-button">Previous article</span>
-    <span (click)="articleNavigationClick(article?.next_article)" *ngIf="article?.next_article !== null" class="button next-button">Next Article</span>
+    <span (click)="articleNavigationClick(article?.previous_article)" *ngIf="article?.previous_article !== null"
+          class="button" id="prev-button">Previous article</span>
+    <span (click)="articleNavigationClick(article?.next_article)" *ngIf="article?.next_article !== null"
+          class="button next-button">Next Article</span>
   </div>
 
   <p id="date">Uploaded on: {{article?.upload_date.toLocaleString()}}</p>

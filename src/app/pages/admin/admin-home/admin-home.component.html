@@ -3,32 +3,32 @@
 
 <div class="container" id="container">
   <div class="side-bar">
-    <div class="card" (click)="changeSubPage(1)">
-      <img src="assets/icons/article.svg" alt="" class="card-icon">
+    <div (click)="changeSubPage(1)" class="card">
+      <img alt="" class="card-icon" src="assets/icons/article.svg">
       <h2>Articles</h2> <br>
     </div>
 
-    <div class="card" (click)="changeSubPage(2)">
-      <img src="assets/icons/category.svg" alt="" class="card-icon">
+    <div (click)="changeSubPage(2)" class="card">
+      <img alt="" class="card-icon" src="assets/icons/category.svg">
       <h2>Categories</h2>
     </div>
 
 
-    <div class="card" (click)="changeSubPage(3)">
-      <img src="assets/icons/blog.svg" alt="" class="card-icon">
+    <div (click)="changeSubPage(3)" class="card">
+      <img alt="" class="card-icon" src="assets/icons/blog.svg">
       <h2>Blogs</h2>
     </div>
 
 
-    <div class="card" (click)="changeSubPage(4)">
-      <img src="assets/icons/reserved.svg" alt="" class="card-icon">
+    <div (click)="changeSubPage(4)" class="card">
+      <img alt="" class="card-icon" src="assets/icons/reserved.svg">
       <h2>Other</h2>
     </div>
   </div>
 
 
   <div class="main-content">
-    <app-admin-articles class="active-sub-page" *ngIf="showArticles"></app-admin-articles>
+    <app-admin-articles *ngIf="showArticles" class="active-sub-page"></app-admin-articles>
     <app-admin-categories *ngIf="showCategories"></app-admin-categories>
 
   </div>

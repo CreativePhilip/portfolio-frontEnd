@@ -16,24 +16,27 @@
     </mat-form-field>
 
     <div class="icon-picker">
-      <input #iconInput type="file" id="icon_input" (change)="iconPicker(iconInput)" hidden accept="image/*">
-      <label for="icon_input"><button mat-raised-button color="primary" (click)="iconInput.click()">Select File</button></label>
+      <input #iconInput (change)="iconPicker(iconInput)" accept="image/*" hidden id="icon_input" type="file">
+      <label for="icon_input">
+        <button (click)="iconInput.click()" color="primary" mat-raised-button>Select File</button>
+      </label>
 
       <img *ngIf="downloadedImageData !== undefined" [src]="downloadedImageData" alt="preview" class="preview-icon">
       <img *ngIf="downloadedImageData === undefined" [src]="selectedImageData" alt="preview" class="preview-icon">
 
       <mat-form-field class="form-element icon-label">
         <mat-label>Icon</mat-label>
-        <input matInput [value]="form.controls.icon.value?.name">
+        <input [value]="form.controls.icon.value?.name" matInput>
         <mat-error *ngIf="hasError('icon', 'required')">Icon is required</mat-error>
       </mat-form-field>
     </div>
 
-    <editor apiKey="3yehonyxa2vu4mcrt70hvsq3u5014t01hteazwtxmx3yxbek" [init]="tinyMceSettings" (onKeyPress)="articleTextUpdate($event)" [initialValue]="form.controls.text.value"></editor>
+    <editor (onKeyPress)="articleTextUpdate($event)" [init]="tinyMceSettings"
+            [initialValue]="form.controls.text.value" apiKey="3yehonyxa2vu4mcrt70hvsq3u5014t01hteazwtxmx3yxbek"></editor>
 
     <mat-form-field class="form-element">
       <mat-label>Categories</mat-label>
-      <mat-select multiple formControlName="category">
+      <mat-select formControlName="category" multiple>
         <mat-option *ngFor="let c of categoryList" [value]="c.id">{{c.name}}</mat-option>
       </mat-select>
     </mat-form-field>
@@ -55,18 +58,26 @@
     </mat-form-field>
 
     <label for="published"></label>
-    <input type="checkbox" id="published" hidden>
+    <input hidden id="published" type="checkbox">
 
     <div class="published-container">
       <h4>Published</h4>
-      <button (click)="publishedButtonHandler(true)" *ngIf="this.form.controls.published.value === true" mat-raised-button class="publish-true">True</button>
-      <button (click)="publishedButtonHandler(false)" *ngIf="this.form.controls.published.value === false" mat-raised-button class="publish-false">False</button>
+      <button (click)="publishedButtonHandler(true)" *ngIf="this.form.controls.published.value === true"
+              class="publish-true" mat-raised-button>True
+      </button>
+      <button (click)="publishedButtonHandler(false)" *ngIf="this.form.controls.published.value === false"
+              class="publish-false" mat-raised-button>False
+      </button>
 
     </div>
 
-    <button *ngIf="article == null" [disabled]="!form.valid" (click)="submitForm()" mat-raised-button class="publish-true submit-form">Create article</button>
-    <button *ngIf="article != null" [disabled]="!form.valid" (click)="submitForm()" mat-raised-button class="publish-true submit-form">Save article</button>
-    <button class="cancel-button" mat-raised-button color="accent" (click)="actionSuccess.emit(false)">Cancel</button>
+    <button (click)="submitForm()" *ngIf="article == null" [disabled]="!form.valid" class="publish-true submit-form"
+            mat-raised-button>Create article
+    </button>
+    <button (click)="submitForm()" *ngIf="article != null" [disabled]="!form.valid" class="publish-true submit-form"
+            mat-raised-button>Save article
+    </button>
+    <button (click)="actionSuccess.emit(false)" class="cancel-button" color="accent" mat-raised-button>Cancel</button>
 
   </form>
 

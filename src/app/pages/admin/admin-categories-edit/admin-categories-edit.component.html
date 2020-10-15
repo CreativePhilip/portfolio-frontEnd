@@ -10,9 +10,9 @@
     </mat-form-field>
 
     <div class="icon-picker">
-      <input #iconInput type="file" id="icon_input" (change)="iconPicker(iconInput)" hidden accept="image/*">
+      <input #iconInput (change)="iconPicker(iconInput)" accept="image/*" hidden id="icon_input" type="file">
       <label for="icon_input">
-        <button mat-raised-button color="primary" (click)="iconInput.click()">Select File</button>
+        <button (click)="iconInput.click()" color="primary" mat-raised-button>Select File</button>
       </label>
 
       <img *ngIf="downloadedImageData !== undefined" [src]="downloadedImageData" alt="preview" class="preview-icon">
@@ -20,20 +20,20 @@
 
       <mat-form-field class="form-element icon-label">
         <mat-label>Icon</mat-label>
-        <input matInput [value]="form.controls.icon.value?.name">
+        <input [value]="form.controls.icon.value?.name" matInput>
       </mat-form-field>
     </div>
 
-    <editor apiKey="3yehonyxa2vu4mcrt70hvsq3u5014t01hteazwtxmx3yxbek" [init]="tinyMceSettings"
-            (onKeyPress)="descriptionUpdate($event)" [initialValue]="form.controls.description.value"></editor>
+    <editor (onKeyPress)="descriptionUpdate($event)" [init]="tinyMceSettings"
+            [initialValue]="form.controls.description.value" apiKey="3yehonyxa2vu4mcrt70hvsq3u5014t01hteazwtxmx3yxbek"></editor>
 
-    <button *ngIf="category == null" [disabled]="!form.valid" (click)="submitForm()" mat-raised-button
-            class="publish-true submit-form">Create category
+    <button (click)="submitForm()" *ngIf="category == null" [disabled]="!form.valid" class="publish-true submit-form"
+            mat-raised-button>Create category
     </button>
-    <button *ngIf="category != null" [disabled]="!form.valid" (click)="submitForm()" mat-raised-button
-            class="publish-true submit-form">Save category
+    <button (click)="submitForm()" *ngIf="category != null" [disabled]="!form.valid" class="publish-true submit-form"
+            mat-raised-button>Save category
     </button>
-    <button class="cancel-button" mat-raised-button color="accent" (click)="actionSuccess.emit(false)">Cancel</button>
+    <button (click)="actionSuccess.emit(false)" class="cancel-button" color="accent" mat-raised-button>Cancel</button>
 
   </form>
 </mat-card>

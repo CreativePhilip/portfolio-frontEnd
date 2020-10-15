@@ -22,6 +22,7 @@ main {
 
 app-category-card {
   transition: transform .3s ease-in-out;
+
   &:hover {
     transform: scale(1.07);
   }

@@ -4,12 +4,12 @@
 
   <h1>Admin Panel Login</h1>
 
-  <form [formGroup]="form" role="form" (ngSubmit)="login()">
+  <form (ngSubmit)="login()" [formGroup]="form" role="form">
     <label for="login">Login </label>
-    <input formControlName="username" class="text-input" id="login" type="text" placeholder="login">
+    <input class="text-input" formControlName="username" id="login" placeholder="login" type="text">
 
     <label for="password">Password </label>
-    <input formControlName="password" class="text-input" id="password" type="password" placeholder="password">
+    <input class="text-input" formControlName="password" id="password" placeholder="password" type="password">
 
     <label for="check">Keep me logged in </label>
     <input formControlName="keepLoggedIn" id="check" type="checkbox">

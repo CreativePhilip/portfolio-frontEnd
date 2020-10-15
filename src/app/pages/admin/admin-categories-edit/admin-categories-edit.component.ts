@@ -1,12 +1,13 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { FormControl, FormGroup } from "@angular/forms";
-import { DatabaseService } from "../../../services/database-connection/database.service";
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {FormControl, FormGroup} from '@angular/forms';
+import {DatabaseService} from '../../../services/database-connection/database.service';
+
 
 @Component({
-  selector: 'app-admin-categories-edit',
-  templateUrl: './admin-categories-edit.component.html',
-  styleUrls: ['./admin-categories-edit.component.scss']
-})
+             selector: 'app-admin-categories-edit',
+             templateUrl: './admin-categories-edit.component.html',
+             styleUrls: ['./admin-categories-edit.component.scss']
+           })
 export class AdminCategoriesEditComponent implements OnInit {
   @Input() category;
   @Output() actionSuccess = new EventEmitter();
@@ -29,12 +30,13 @@ export class AdminCategoriesEditComponent implements OnInit {
   };
 
   form: FormGroup;
+
   constructor(private db: DatabaseService) {
     this.form = new FormGroup({
-      name: new FormControl('', []),
-      icon: new FormControl('', []),
-      description: new FormControl('', [])
-    });
+                                name: new FormControl('', []),
+                                icon: new FormControl('', []),
+                                description: new FormControl('', [])
+                              });
   }
 
   ngOnInit() {
@@ -55,7 +57,7 @@ export class AdminCategoriesEditComponent implements OnInit {
   createImgFromBlob(blob) {
     let reader = new FileReader();
 
-    reader.addEventListener("load", () => {
+    reader.addEventListener('load', () => {
       this.downloadedImageData = reader.result;
     }, false);
     reader.readAsDataURL(blob);
@@ -68,7 +70,7 @@ export class AdminCategoriesEditComponent implements OnInit {
 
     const fileReader = new FileReader();
 
-    fileReader.addEventListener('load', () =>{
+    fileReader.addEventListener('load', () => {
       this.selectedImageData = fileReader.result;
     });
     fileReader.readAsDataURL(input.files[0]);
@@ -82,17 +84,21 @@ export class AdminCategoriesEditComponent implements OnInit {
   submitForm() {
     if (this.form.valid) {
       let data = new FormData();
-      data.append("name", this.form.controls.name.value);
-      data.append("description", this.form.controls.description.value);
+      data.append('name', this.form.controls.name.value);
+      data.append('description', this.form.controls.description.value);
 
-      if (this.downloadedImageData === undefined){
-        data.append("icon", this.form.controls.icon.value);
+      if (this.downloadedImageData === undefined) {
+        data.append('icon', this.form.controls.icon.value);
       }
 
       if (this.category !== null) {
-        this.db.updateCategory(this.category.id, data).subscribe(value => {this.actionSuccess.emit(true)})
+        this.db.updateCategory(this.category.id, data).subscribe(value => {
+          this.actionSuccess.emit(true);
+        });
       } else {
-        this.db.createCategory(data).subscribe(value => {this.actionSuccess.emit(true)})
+        this.db.createCategory(data).subscribe(value => {
+          this.actionSuccess.emit(true);
+        });
       }
 
     }

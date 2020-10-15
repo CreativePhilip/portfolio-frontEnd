@@ -1,11 +1,12 @@
-import { Component, OnInit } from '@angular/core';
-import { DatabaseService } from "../../../services/database-connection/database.service";
+import {Component, OnInit} from '@angular/core';
+import {DatabaseService} from '../../../services/database-connection/database.service';
+
 
 @Component({
-  selector: 'app-admin-categories',
-  templateUrl: './admin-categories.component.html',
-  styleUrls: ['./admin-categories.component.scss']
-})
+             selector: 'app-admin-categories',
+             templateUrl: './admin-categories.component.html',
+             styleUrls: ['./admin-categories.component.scss']
+           })
 export class AdminCategoriesComponent implements OnInit {
 
   categoryList = [];
@@ -14,7 +15,8 @@ export class AdminCategoriesComponent implements OnInit {
   selectedCategory = null;
   editing = false;
 
-  constructor(private db: DatabaseService) { }
+  constructor(private db: DatabaseService) {
+  }
 
   ngOnInit() {
     this.db.getCategories().subscribe(value => {
@@ -25,7 +27,7 @@ export class AdminCategoriesComponent implements OnInit {
   createCategory() {
     this.editing = false;
 
-    setTimeout( () => {
+    setTimeout(() => {
       this.editing = true;
       this.selectedCategory = null;
     }, 0);
@@ -34,7 +36,7 @@ export class AdminCategoriesComponent implements OnInit {
   editCategory(categoryID) {
     this.editing = false;
 
-    setTimeout( () => {
+    setTimeout(() => {
       this.editing = true;
       this.selectedCategory = categoryID;
     }, 0);

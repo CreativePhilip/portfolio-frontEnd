@@ -1,14 +1,14 @@
-import { Component, OnInit } from '@angular/core';
-import { DatabaseService } from "../../services/database-connection/database.service";
-import { ActivatedRoute, Router } from "@angular/router";
-import { ArticleModel } from "../../services/database-connection/Models/ArticleModel";
-import { FormControl, FormGroup, Validators } from "@angular/forms";
+import {Component, OnInit} from '@angular/core';
+import {DatabaseService} from '../../services/database-connection/database.service';
+import {ActivatedRoute, Router} from '@angular/router';
+import {ArticleModel} from '../../services/database-connection/Models/ArticleModel';
+
 
 @Component({
-  selector: 'app-article',
-  templateUrl: './article.component.html',
-  styleUrls: ['./article.component.scss']
-})
+             selector: 'app-article',
+             templateUrl: './article.component.html',
+             styleUrls: ['./article.component.scss']
+           })
 export class ArticleComponent implements OnInit {
   article: ArticleModel;
 
@@ -29,7 +29,7 @@ export class ArticleComponent implements OnInit {
   }
 
   articleNavigationClick(id) {
-    this.router.navigateByUrl(`/article/${id}`)
+    this.router.navigateByUrl(`/article/${id}`);
   }
 
 

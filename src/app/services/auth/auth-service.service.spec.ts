@@ -1,9 +1,10 @@
-import { TestBed } from '@angular/core/testing';
+import {TestBed} from '@angular/core/testing';
 
-import { AuthService } from './auth-service.service';
-import { HttpClientTestingModule } from "@angular/common/http/testing";
-import { AuthModel } from "../../state-management/auth-state/auth-model";
-import { MockStore, provideMockStore } from "@ngrx/store/testing";
+import {AuthService} from './auth-service.service';
+import {HttpClientTestingModule} from '@angular/common/http/testing';
+import {AuthModel} from '../../state-management/auth-state/auth-model';
+import {MockStore, provideMockStore} from '@ngrx/store/testing';
+
 
 describe('AuthServiceService', () => {
 
@@ -16,9 +17,9 @@ describe('AuthServiceService', () => {
 
 
   beforeEach(() => TestBed.configureTestingModule({
-    imports: [HttpClientTestingModule],
-    providers: [provideMockStore({ initialState })]
-  }).compileComponents()
+                                                    imports: [HttpClientTestingModule],
+                                                    providers: [provideMockStore({initialState})]
+                                                  }).compileComponents()
   );
 
   it('should be created', () => {

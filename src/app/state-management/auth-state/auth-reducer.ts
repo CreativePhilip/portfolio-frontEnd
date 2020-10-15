@@ -1,5 +1,6 @@
-import {AuthModel} from "./auth-model";
-import * as AuthActions from "./auth-actions"
+import {AuthModel} from './auth-model';
+import * as AuthActions from './auth-actions';
+
 
 const defaultState: AuthModel = {
   is_logged_in: false,
@@ -11,9 +12,9 @@ export function authReducer(state: AuthModel = defaultState,
                             action: AuthActions.AuthActions) {
 
   switch (action.type) {
-    case "[AUTHMODEL] Login":
+    case '[AUTHMODEL] Login':
       return action.payload;
-    case "[AUTHMODEL] Logout":
+    case '[AUTHMODEL] Logout':
       localStorage.clear();
       return defaultState;
     default:

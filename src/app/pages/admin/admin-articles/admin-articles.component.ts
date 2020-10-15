@@ -1,15 +1,16 @@
-import { Component, OnInit } from '@angular/core';
-import { DatabaseService } from "../../../services/database-connection/database.service";
-import { ArticleModel } from "../../../services/database-connection/Models/ArticleModel";
+import {Component, OnInit} from '@angular/core';
+import {DatabaseService} from '../../../services/database-connection/database.service';
+import {ArticleModel} from '../../../services/database-connection/Models/ArticleModel';
+
 
 @Component({
-  selector: 'app-admin-articles',
-  templateUrl: './admin-articles.component.html',
-  styleUrls: ['./admin-articles.component.scss']
-})
+             selector: 'app-admin-articles',
+             templateUrl: './admin-articles.component.html',
+             styleUrls: ['./admin-articles.component.scss']
+           })
 export class AdminArticlesComponent implements OnInit {
   articleList: ArticleModel[] = [];
-  tableColumns: string[] = ['id', 'title', 'preview', 'upload_date', 'published', 'actions']
+  tableColumns: string[] = ['id', 'title', 'preview', 'upload_date', 'published', 'actions'];
 
   edit = false;
   selectedArticle = null;
@@ -22,7 +23,7 @@ export class AdminArticlesComponent implements OnInit {
   ngOnInit() {
     this.articleList = [];
     this.db.getAllArticles(-1).subscribe(value => {
-      this.articleList = value
+      this.articleList = value;
       for (let a of this.articleList) {
         a.upload_date = new Date(a.upload_date);
       }
@@ -33,18 +34,18 @@ export class AdminArticlesComponent implements OnInit {
 
   editHandler(article) {
     this.edit = false;
-    setTimeout(() =>{
+    setTimeout(() => {
       this.edit = true;
       this.selectedArticle = article;
-    }, 1)
+    }, 1);
   }
 
   createHandler() {
     this.edit = false;
-    setTimeout(() =>{
+    setTimeout(() => {
       this.edit = true;
       this.selectedArticle = null;
-    }, 1)
+    }, 1);
   }
 
   crudAction(val) {

@@ -1,8 +1,9 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { AdminCategoriesEditComponent } from './admin-categories-edit.component';
-import { DatabaseService } from "../../../services/database-connection/database.service";
-import { DatabaseServiceMock } from "../../../services/database-connection/database.service.mock";
+import {AdminCategoriesEditComponent} from './admin-categories-edit.component';
+import {DatabaseService} from '../../../services/database-connection/database.service';
+import {DatabaseServiceMock} from '../../../services/database-connection/database.service.mock';
+
 
 describe('AdminCategoriesEditComponent', () => {
   let component: AdminCategoriesEditComponent;
@@ -10,10 +11,10 @@ describe('AdminCategoriesEditComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AdminCategoriesEditComponent ],
-      providers: [{provide: DatabaseService, useClass: DatabaseServiceMock}]
-    })
-    .compileComponents();
+                                     declarations: [AdminCategoriesEditComponent],
+                                     providers: [{provide: DatabaseService, useClass: DatabaseServiceMock}]
+                                   })
+      .compileComponents();
   }));
 
   beforeEach(() => {

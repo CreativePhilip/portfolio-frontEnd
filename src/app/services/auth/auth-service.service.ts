@@ -1,11 +1,11 @@
-import { Injectable, OnDestroy } from '@angular/core';
-import { HttpClient } from "@angular/common/http";
-import { environment } from '../../../environments/environment';
-import { Store } from "@ngrx/store";
-import { AuthState } from "../../state-management/auth-state/auth-state";
-import { AuthModel } from "../../state-management/auth-state/auth-model";
-import { JwtHelperService } from "@auth0/angular-jwt";
-import * as AuthActions from "../../state-management/auth-state/auth-actions";
+import {Injectable, OnDestroy} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import {environment} from '../../../environments/environment';
+import {Store} from '@ngrx/store';
+import {AuthState} from '../../state-management/auth-state/auth-state';
+import {AuthModel} from '../../state-management/auth-state/auth-model';
+import {JwtHelperService} from '@auth0/angular-jwt';
+import * as AuthActions from '../../state-management/auth-state/auth-actions';
 
 
 export interface AuthResponse {
@@ -13,15 +13,16 @@ export interface AuthResponse {
   access: string
 }
 
+
 export interface TokenRefresh {
   access: string
 }
 
 
 @Injectable({
-  providedIn: 'root'
-})
-export class AuthService implements OnDestroy{
+              providedIn: 'root'
+            })
+export class AuthService implements OnDestroy {
 
   rootUrl = `${environment.apiUrl}/`;
   tokenCheck;
@@ -29,8 +30,8 @@ export class AuthService implements OnDestroy{
   jwtHelper: JwtHelperService = new JwtHelperService();
   subscription;
 
-  constructor (private http: HttpClient,
-               private store: Store<AuthState>) {
+  constructor(private http: HttpClient,
+              private store: Store<AuthState>) {
   }
 
   initTokenChecks() {
@@ -41,54 +42,54 @@ export class AuthService implements OnDestroy{
     });
   }
 
-  ngOnDestroy (): void {
+  ngOnDestroy(): void {
     clearInterval(this.tokenCheck);
     this.subscription.unsubscribe();
   }
 
-  loginToServer (login: string, password: string) {
-    return this.http.post<AuthResponse>(`${this.rootUrl}auth/token`, { "username": login, "password": password });
+  loginToServer(login: string, password: string) {
+    return this.http.post<AuthResponse>(`${this.rootUrl}auth/token`, {'username': login, 'password': password});
   }
 
-  updateToken (refresh: string) {
-    return this.http.post<TokenRefresh>(`${this.rootUrl}auth/token/refresh`, { "refresh": refresh });
+  updateToken(refresh: string) {
+    return this.http.post<TokenRefresh>(`${this.rootUrl}auth/token/refresh`, {'refresh': refresh});
   }
 
-  registerWithServer (login: string, email: string, password: string) {
+  registerWithServer(login: string, email: string, password: string) {
     return this.http.post(`${this.rootUrl}ippon/registration/`, {
-      "username": login,
-      "email": email,
-      "password": password
+      'username': login,
+      'email': email,
+      'password': password
     });
   }
 
-  tokenRefresh () {
+  tokenRefresh() {
     if (this.auth.is_logged_in && !this.jwtHelper.isTokenExpired(this.auth.refresh)) {
       this.updateToken(this.auth.refresh).subscribe(
         value => {
           this.store.dispatch(new AuthActions.Login(
-            { is_logged_in: true, refresh: this.auth.refresh, access: value.access }));
+            {is_logged_in: true, refresh: this.auth.refresh, access: value.access}));
         },
         error => {
-          console.log(error)
+          console.log(error);
         }
-      )
+      );
     }
   }
 
-  saveTokensToLocalStorage (access: string, refresh: string) {
-    localStorage.setItem("access", access);
-    localStorage.setItem("refresh", refresh);
+  saveTokensToLocalStorage(access: string, refresh: string) {
+    localStorage.setItem('access', access);
+    localStorage.setItem('refresh', refresh);
   }
 
-  loadTokensFromLocalStorage () {
-    const a = localStorage.getItem("access");
-    const r = localStorage.getItem("refresh");
+  loadTokensFromLocalStorage() {
+    const a = localStorage.getItem('access');
+    const r = localStorage.getItem('refresh');
     if (a != null && r != null && this.jwtHelper.isTokenExpired(r) == false && !this.auth.is_logged_in) {
-      this.store.dispatch(new AuthActions.Login({ is_logged_in: true, refresh: r, access: a }));
+      this.store.dispatch(new AuthActions.Login({is_logged_in: true, refresh: r, access: a}));
       this.tokenRefresh();
     } else {
-      this.store.dispatch(new AuthActions.Login({ is_logged_in: false, refresh: null, access: null }));
+      this.store.dispatch(new AuthActions.Login({is_logged_in: false, refresh: null, access: null}));
     }
   }
 }

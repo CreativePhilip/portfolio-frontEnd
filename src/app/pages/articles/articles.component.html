@@ -1,7 +1,7 @@
-<app-main-nav [floating]="true"></app-main-nav>
+<app-main-nav></app-main-nav>
 
 <div class="category_description">
-  <img src="https://picsum.photos/300/150" alt="Category image">
+  <img alt="Category image" src="https://picsum.photos/300/150">
 
   <div class="category_description__data">
     <h1 class="category_name">{{currentCategory?.name}}</h1>
@@ -9,13 +9,13 @@
   </div>
 </div>
 
-<div class="article" *ngFor="let article of articleList">
-  <img src="https://picsum.photos/300/150" alt="Article image">
+<div *ngFor="let article of articleList" class="article">
+  <img alt="Article image" src="https://picsum.photos/300/150">
   <div class="article__data">
     <h3 class="article_name">{{article.title}}</h3>
     <h4>{{article.preview_text}}</h4>
   </div>
-  <span class="read-button" (click)="articleReadClick(article)">Read</span>
+  <span (click)="articleReadClick(article)" class="read-button">Read</span>
 </div>
 
 

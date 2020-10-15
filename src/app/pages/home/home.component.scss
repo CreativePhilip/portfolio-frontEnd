@@ -61,7 +61,6 @@ main {
   box-shadow: 0 1px 10px black;
 
 
-
   .grid-container {
     display: grid;
     grid-template-columns: 50fr 50fr;
@@ -171,7 +170,7 @@ main {
     flex-direction: column;
   }
 
-  .skills .grid-container .skill-item-description{
+  .skills .grid-container .skill-item-description {
     max-width: 90%;
   }
 }
