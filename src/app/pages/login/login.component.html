@@ -1,21 +1,14 @@
-<app-main-nav></app-main-nav>
-
 <div class="container">
 
   <h1>Admin Panel Login</h1>
 
-  <form (ngSubmit)="login()" [formGroup]="form" role="form">
-    <label for="login">Login </label>
-    <input class="text-input" formControlName="username" id="login" placeholder="login" type="text">
-
-    <label for="password">Password </label>
-    <input class="text-input" formControlName="password" id="password" placeholder="password" type="password">
-
-    <label for="check">Keep me logged in </label>
-    <input formControlName="keepLoggedIn" id="check" type="checkbox">
+  <form [formGroup]="form" role="form">
+    <input [status]="fieldStatus('username')" class="form-element" formControlName="username" id="login" nbInput placeholder="login" type="text">
+    <input [status]="fieldStatus('password')" class="form-element" formControlName="password" id="password" nbInput placeholder="password"
+           type="password">
+    <nb-checkbox class="form-element" formControlName="keepLoggedIn">Keep me logged in</nb-checkbox>
 
     <br>
-    <span (click)="login()" class="button"> Login </span>
+    <button [disabled]="form.invalid" class="button" nbButton size="large" status="success"> Login</button>
   </form>
-
 </div>

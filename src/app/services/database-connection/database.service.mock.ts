@@ -1,25 +1,26 @@
-import {of} from 'rxjs';
+import {of} from 'rxjs'
 
 
-export class DatabaseServiceMock {
+export class DatabaseServiceMock
+{
 
   getArticle(number) {
-    return of();
+    return of()
   }
 
   getAllArticles() {
-    return of();
+    return of()
   }
 
   getAllArticlesMini(number) {
-    return of();
+    return of()
   }
 
   getCategories() {
-    return of();
+    return of()
   }
 
   getCategory(number) {
-    return of();
+    return of()
   }
 }

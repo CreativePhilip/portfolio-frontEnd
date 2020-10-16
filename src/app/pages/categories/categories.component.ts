@@ -1,16 +1,17 @@
-import {Component, OnInit} from '@angular/core';
-import {DatabaseService} from '../../services/database-connection/database.service';
-import {CategoryModel} from '../../services/database-connection/Models/CategoryModel';
-import {Router} from '@angular/router';
+import {Component, OnInit} from '@angular/core'
+import {Router}            from '@angular/router'
+import {DatabaseService}   from '../../services/database-connection/database.service'
+import {CategoryModel}     from '../../services/database-connection/Models/CategoryModel'
 
 
 @Component({
-             selector: 'app-categories',
-             templateUrl: './categories.component.html',
-             styleUrls: ['./categories.component.scss']
-           })
-export class CategoriesComponent implements OnInit {
-  categories: CategoryModel[];
+  selector: 'app-categories',
+  templateUrl: './categories.component.html',
+  styleUrls: ['./categories.component.scss']
+})
+export class CategoriesComponent implements OnInit
+{
+  categories: CategoryModel[]
 
   constructor(private db: DatabaseService,
               private router: Router) {
@@ -18,12 +19,12 @@ export class CategoriesComponent implements OnInit {
 
   ngOnInit() {
     this.db.getCategories().subscribe(value => {
-      this.categories = value;
-    });
+      this.categories = value
+    })
   }
 
   onCardClick(cat) {
-    this.router.navigateByUrl(`/categories/${cat.id}`);
+    this.router.navigateByUrl(`/categories/${cat.id}`)
   }
 
 }

@@ -1,28 +1,28 @@
-import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing'
+import {AttributionsComponent}            from '../../attributions/attributions.component'
 
-import {MainFooterComponent} from './main-footer.component';
-import {AttributionsComponent} from '../../attributions/attributions.component';
+import {MainFooterComponent} from './main-footer.component'
 
 
 describe('MainFooterComponent', () => {
-  let component: MainFooterComponent;
-  let fixture: ComponentFixture<MainFooterComponent>;
+  let component: MainFooterComponent
+  let fixture: ComponentFixture<MainFooterComponent>
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-                                     declarations: [MainFooterComponent, AttributionsComponent],
-                                     imports: []
-                                   })
-      .compileComponents();
-  }));
+      declarations: [MainFooterComponent, AttributionsComponent],
+      imports: []
+    })
+      .compileComponents()
+  }))
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(MainFooterComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+    fixture = TestBed.createComponent(MainFooterComponent)
+    component = fixture.componentInstance
+    fixture.detectChanges()
+  })
 
   it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-});
+    expect(component).toBeTruthy()
+  })
+})

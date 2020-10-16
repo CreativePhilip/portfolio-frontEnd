@@ -1,21 +1,22 @@
-<div class="article-container">
-  <h1 id="title">{{article?.title}}</h1>
-  <p [innerHTML]="article?.text" id="text"></p>
+<!--<div class="article-container">-->
+<!--  <h1 id="title">{{article?.title}}</h1>-->
+<!--  <p [innerHTML]="article?.text" id="text"></p>-->
 
-  <div class="buttons">
-    <span (click)="articleNavigationClick(article?.previous_article)" *ngIf="article?.previous_article !== null"
-          class="button" id="prev-button">Previous article</span>
-    <span (click)="articleNavigationClick(article?.next_article)" *ngIf="article?.next_article !== null"
-          class="button next-button">Next Article</span>
-  </div>
+<!--  <div class="buttons">-->
+<!--    <span (click)="articleNavigationClick(article?.previous_article)" *ngIf="article?.previous_article !== null"-->
+<!--          class="button" id="prev-button">Previous article</span>-->
+<!--    <span (click)="articleNavigationClick(article?.next_article)" *ngIf="article?.next_article !== null"-->
+<!--          class="button next-button">Next Article</span>-->
+<!--  </div>-->
 
-  <p id="date">Uploaded on: {{article?.upload_date.toLocaleString()}}</p>
-</div>
-
+<!--  <p id="date">Uploaded on: {{article?.upload_date.toLocaleString()}}</p>-->
+<!--</div>-->
 
 
 <nb-card>
   <nb-card-header>{{ article?.title }}</nb-card-header>
-  <nb-card-body><editor [initialValue]="article?.text" inline="true" disabled="true"></editor></nb-card-body>
+  <nb-card-body>
+    <editor [initialValue]="article?.text" disabled="true" inline="true"></editor>
+  </nb-card-body>
   <nb-card-footer> Uploaded on: {{ article?.upload_date.toLocaleString() }} </nb-card-footer>
 </nb-card>

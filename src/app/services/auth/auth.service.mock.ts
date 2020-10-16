@@ -1,4 +1,5 @@
-export class AuthServiceMock {
+export class AuthServiceMock
+{
   initTokenChecks() {
 
   }

@@ -1,31 +1,31 @@
-import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing'
+import {DatabaseService}                  from '../../../services/database-connection/database.service'
+import {DatabaseServiceMock}              from '../../../services/database-connection/database.service.mock'
 
-import {AdminCategoriesEditComponent} from './admin-categories-edit.component';
-import {DatabaseService} from '../../../services/database-connection/database.service';
-import {DatabaseServiceMock} from '../../../services/database-connection/database.service.mock';
+import {AdminCategoriesEditComponent} from './admin-categories-edit.component'
 
 
 describe('AdminCategoriesEditComponent', () => {
-  let component: AdminCategoriesEditComponent;
-  let fixture: ComponentFixture<AdminCategoriesEditComponent>;
+  let component: AdminCategoriesEditComponent
+  let fixture: ComponentFixture<AdminCategoriesEditComponent>
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-                                     declarations: [AdminCategoriesEditComponent],
-                                     providers: [{provide: DatabaseService, useClass: DatabaseServiceMock}]
-                                   })
-      .compileComponents();
-  }));
+      declarations: [AdminCategoriesEditComponent],
+      providers: [{provide: DatabaseService, useClass: DatabaseServiceMock}]
+    })
+      .compileComponents()
+  }))
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AdminCategoriesEditComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+    fixture = TestBed.createComponent(AdminCategoriesEditComponent)
+    component = fixture.componentInstance
+    fixture.detectChanges()
+  })
 
   it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+    expect(component).toBeTruthy()
+  })
 
 
-});
+})

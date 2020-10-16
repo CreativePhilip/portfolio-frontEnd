@@ -1,4 +1,5 @@
-export interface MiniArticleModel {
+export interface MiniArticleModel
+{
   id: number,
   title: string
 }

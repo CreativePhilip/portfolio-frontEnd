@@ -9,27 +9,24 @@
   flex-direction: column;
 }
 
-.text-input {
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-}
+form {
+  display: flex;
+  flex-direction: column;
 
-.button {
-  $color: #f3aa1f;
+  justify-content: center;
+  align-items: center;
 
-  background-color: $color;
-  display: inline-block;
-  margin-top: 1em;
-  padding: .5em 1em;
+  .form-element {
+    margin-bottom: 20px;
+  }
 
-  user-select: none;
+  input {
+    width: 30%;
+  }
 
-  &:hover {
-    background-color: lighten($color, 5);
+  button {
+    $padding-value: 4em;
+    padding-left: $padding-value !important;
+    padding-right: $padding-value !important;
   }
 }

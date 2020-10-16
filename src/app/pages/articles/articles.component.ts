@@ -1,16 +1,17 @@
 import {Component, OnDestroy, OnInit} from '@angular/core'
-import {DatabaseService} from '../../services/database-connection/database.service'
-import {ActivatedRoute, Router} from '@angular/router'
-import {CategoryModel} from '../../services/database-connection/Models/CategoryModel'
-import {ArticleModel} from '../../services/database-connection/Models/ArticleModel'
+import {ActivatedRoute, Router}       from '@angular/router'
+import {DatabaseService}              from '../../services/database-connection/database.service'
+import {ArticleModel}                 from '../../services/database-connection/Models/ArticleModel'
+import {CategoryModel}                from '../../services/database-connection/Models/CategoryModel'
 
 
 @Component({
-             selector: 'app-articles',
-             templateUrl: './articles.component.html',
-             styleUrls: ['./articles.component.scss']
-           })
-export class ArticlesComponent implements OnInit, OnDestroy {
+  selector: 'app-articles',
+  templateUrl: './articles.component.html',
+  styleUrls: ['./articles.component.scss']
+})
+export class ArticlesComponent implements OnInit, OnDestroy
+{
   currentCategory: CategoryModel
   articleList: ArticleModel[]
   private routeParamSubscription
